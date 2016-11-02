@@ -6,8 +6,11 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 0.2f;
 	public float maxVelocity = 10f;
 
-	private float LEFT = 0f;
-	private float RIGHT = 180f;
+	private static int LEFT = -1;
+	private static int NONE = 0;
+	private static int RIGHT = 1;
+
+	private int slide_direction = NONE;
 
 	// Use this for initialization
 	void Start () {
@@ -24,9 +27,35 @@ public class PlayerMovement : MonoBehaviour {
 		float x = Input.GetAxis ("Horizontal");
 		float y = Input.GetAxis ("Vertical");
 
-		if (GetComponent<Rigidbody2D> ().velocity.magnitude < maxVelocity) {
-			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (x * speed, y * speed));
+		Rigidbody2D body = GetComponent<Rigidbody2D> ();
+
+		if (body.velocity.magnitude < maxVelocity) {
+			body.AddForce (new Vector2 (x * speed, y * speed));
 		}
 
+		if (body.velocity.x < -0.1) {
+			transform.parent.gameObject.GetComponent<SpriteRenderer> ().flipX = true;
+		}
+
+		if (body.velocity.x > 0.1) {
+			transform.parent.gameObject.GetComponent<SpriteRenderer> ().flipX = false;
+		}
+
+		if (body.rotation > 45) {
+			slide_direction = LEFT;
+		} else if (body.rotation < -45) {
+			slide_direction = RIGHT;
+		} else {
+			slide_direction = NONE;
+		}
+
+		if (y > 0 && slide_direction != NONE) {
+			// Get up
+			body.isKinematic = true;
+			body.position += new Vector2(0, 1);
+			body.rotation = 0;
+			transform.parent.GetComponent<Rigidbody2D> ().rotation = 0;
+			body.isKinematic = false;
+		}
 	}
 }
