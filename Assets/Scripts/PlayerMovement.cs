@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	private int slide_direction = NONE;
 
+	private bool can_jump = true;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -22,6 +24,13 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
+	void OnCollisionEnter2D(Collision2D c)
+	{
+		if (c.gameObject.tag == "Floor") {
+			can_jump = true;
+		}
+	}
+
 	void FixedUpdate() {
 
 		float x = Input.GetAxis ("Horizontal");
@@ -29,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		Rigidbody2D body = GetComponent<Rigidbody2D> ();
 
-		if (body.velocity.magnitude < maxVelocity) {
+		if (body.velocity.magnitude < maxVelocity || slide_direction != NONE) {
 			body.AddForce (new Vector2 (x * speed, y * speed));
 		}
 
@@ -51,11 +60,9 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (y > 0 && slide_direction != NONE) {
 			// Get up
-			body.isKinematic = true;
 			body.position += new Vector2(0, 1);
 			body.rotation = 0;
 			transform.parent.GetComponent<Rigidbody2D> ().rotation = 0;
-			body.isKinematic = false;
 		}
 	}
 }
