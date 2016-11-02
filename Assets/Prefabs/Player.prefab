@@ -43,6 +43,7 @@ GameObject:
   - 50: {fileID: 50000010762778976}
   - 255: {fileID: 255000010099678094}
   - 114: {fileID: 114000012208503354}
+  - 61: {fileID: 61000010468794002}
   m_Layer: 0
   m_Name: FootWeight
   m_TagString: Untagged
@@ -85,7 +86,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013241290298}
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -119,7 +120,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1000010776912334}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 848cc37f35a884da2b6fa6a013086438, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -129,6 +130,20 @@ PolygonCollider2D:
       - {x: 1.202301, y: -3.02}
       - {x: -1.2447205, y: -3.02}
       - {x: -1.3439531, y: -2.9}
+--- !u!61 &61000010468794002
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013241290298}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.2770996, y: 0.066594884}
+  serializedVersion: 2
+  m_Size: {x: 1.1760399, y: 0.8668366}
 --- !u!61 &61000012013744430
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -182,8 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4b435519cf547619f36f9d565594dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
   maxVelocity: 2
+  jump_speed: 500
 --- !u!212 &212000011798916344
 SpriteRenderer:
   m_ObjectHideFlags: 1
