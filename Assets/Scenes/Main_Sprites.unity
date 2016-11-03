@@ -515,7 +515,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 613994797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1234498, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -969,8 +969,8 @@ MonoBehaviour:
   move_speed: 2
   step_length: 0.3
   slide_speed: 1
-  fall_speed: 1
-  jump_speed: 10
+  turn_speed: 100
+  jump_speed: 3
   gravity: 1
 --- !u!61 &1140897544
 BoxCollider2D:
@@ -983,9 +983,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -1.14, y: 0}
+  m_Offset: {x: 0.046521187, y: 0.6979537}
   serializedVersion: 2
-  m_Size: {x: 0.61, y: 1.45}
+  m_Size: {x: 0.5227556, y: 1.4674494}
 --- !u!50 &1140897545
 Rigidbody2D:
   serializedVersion: 2
@@ -997,7 +997,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
