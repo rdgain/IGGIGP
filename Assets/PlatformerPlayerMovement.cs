@@ -7,6 +7,7 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 	public float step_length;
 	public float slide_speed;
 	public float fall_speed;
+	public float jump_speed;
 
 	public float gravity = 1;
 
@@ -15,29 +16,32 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 	private float to_step;
 	private bool can_jump = false;
 
+	private GameObject sprite;
+
 	// Use this for initialization
 	void Start () {
 		to_step = step_length;
+		sprite = transform.FindChild ("PlayerSprite").gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		velocity.y = GetComponent<Rigidbody2D> ().velocity.y;
 		float h = Input.GetAxisRaw ("Horizontal");
-		if ((h > 0.1f || h < -0.1f) && !stepping && !CannotMove(h)) {
+		float v = Input.GetAxisRaw ("Vertical");
+		if ((h > 0.1f || h < -0.1f) && !stepping) {
 			stepping = true;
 			velocity.x = h*move_speed;
+			sprite.GetComponent<SpriteRenderer> ().flipX = velocity.x < 0.1f;
+		}
+		if (v > 0.1f && can_jump) {
+			velocity.y = jump_speed;
 		}
 		GetComponent<Animator> ().SetBool ("Step", stepping);
 
-		if (!can_jump) {
-			velocity.y = -fall_speed;
-		} else {
-			velocity.y = 0f;
-		}
-
 		// Update position according to velocity.
 		float move_x = velocity.x * Time.deltaTime;
-		transform.Translate(new Vector3(move_x, velocity.y * Time.deltaTime, 0));
+		GetComponent<Rigidbody2D> ().velocity = velocity;
 
 		to_step -= Mathf.Abs(move_x);
 		if (to_step < 0f) {
@@ -47,21 +51,14 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 		}
 	}
 
-	bool CannotMove(float h)
-	{
-		RaycastHit2D hit = Physics2D.Linecast (new Vector2(transform.position.x, transform.position.y), new Vector2 (transform.position.x + h * step_length, 0), 1 << LayerMask.NameToLayer ("Geometry"));
-		print(hit.collider);
-		return hit.collider != null;
-	}
-
-	void OnTriggerStay2D(Collider2D c)
+	void OnCollisionStay2D(Collision2D c)
 	{
 		if (c.gameObject.tag == "Floor") {
 			can_jump = true;
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D c)
+	void OnCollisionExit2D(Collision2D c)
 	{
 		if (c.gameObject.tag == "Floor") {
 			can_jump = false;
