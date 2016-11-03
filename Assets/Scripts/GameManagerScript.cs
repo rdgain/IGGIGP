@@ -3,11 +3,13 @@
 public class GameManagerScript : MonoBehaviour {
 
     float startDay, startMoment;
+    public int dayCount = 1;
 
     public static int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 50f;
+    public static float lengthOfMoment = 60f;
     public static int moment;
+    public static int MAX_HUNGER = 50, HUNGER_RATE = 200;
 
     // Use this for initialization
     void Start () {
@@ -32,7 +34,18 @@ public class GameManagerScript : MonoBehaviour {
             if (moment == MORNING)
             {
                 //Reset player disguise
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDisguise>().disguise = PlayerDisguise.MAXDISGUISE;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDisguise>().ResetDisguise();
+                dayCount++;
+
+                //Update UI day count
+                GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
+
+                //Reset UI fish
+                GameObject[] fish = GameObject.FindGameObjectsWithTag("Fish_UI");
+                foreach (GameObject f in fish)
+                {
+                    f.SetActive(false);
+                }
             }
         }
 
