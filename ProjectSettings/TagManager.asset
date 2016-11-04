@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
-  - Fish
+  - Fish_UI
+  - Penguin
   - Interactive
+  - Fish
   layers:
   - Default
   - TransparentFX
