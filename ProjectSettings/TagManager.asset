@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Fish
+  - Interactive
   layers:
   - Default
   - TransparentFX

@@ -38,17 +38,6 @@ public class PlayerDisguise : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (delay > 0) delay--;
-
-        if (Input.GetAxis("Jump") > 0)
-        {
-            if (delay == 0)
-            {
-                DecreaseDisguise();
-                delay = MAX_DELAY;
-            }
-        }
-	
 	}
 
     public void DecreaseDisguise()
