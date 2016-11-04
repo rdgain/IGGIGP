@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class FriendScript : MonoBehaviour {
+	public GameObject text;
+	public GameObject player;
 
 	InteractiveObject me;
-	public GameObject text;
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +17,18 @@ public class FriendScript : MonoBehaviour {
 		if (me.isActive && Input.GetKeyDown (KeyCode.Space)) {
 			ContinueConversation ();
 		}
+		if (Vector3.Distance (transform.position, player.transform.position) > 5) {
+			ShowText ("");
+		}
 	}
 
 	void ContinueConversation()
 	{
-		ShowText ("Hi!");
+		if (GameManagerScript.moment == GameManagerScript.MORNING)
+			ShowText ("Hi!\nCome back in the evening for fish.");
+		if (GameManagerScript.moment == GameManagerScript.EVENING) {
+			ShowText ("Welcome back! Have a fish.");
+		}
 	}
 
 	void ShowText(string s)
