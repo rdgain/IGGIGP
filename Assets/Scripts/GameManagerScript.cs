@@ -3,7 +3,8 @@
 public class GameManagerScript : MonoBehaviour {
 
     float startDay, startMoment;
-    public int dayCount = 1;
+    public static int dayCount = 1;
+	public static GameObject player;
 
     public static int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
@@ -13,11 +14,10 @@ public class GameManagerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         moment = MORNING;
         startDay = Time.time;
         startMoment = Time.time;
-	
+		player = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
@@ -27,26 +27,7 @@ public class GameManagerScript : MonoBehaviour {
 
         if (elapsed > lengthOfMoment)
         {
-            //Move to next moment
-            moment = (moment + 1) % 4;
-            startMoment = Time.time;
-
-            if (moment == MORNING)
-            {
-                //Reset player disguise
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDisguise>().ResetDisguise();
-                dayCount++;
-
-                //Update UI day count
-                GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
-
-                //Reset UI fish
-                GameObject[] fish = GameObject.FindGameObjectsWithTag("Fish_UI");
-                foreach (GameObject f in fish)
-                {
-                    f.SetActive(false);
-                }
-            }
+			NextMoment ();
         }
 
         //switch ( moment)
@@ -58,4 +39,42 @@ public class GameManagerScript : MonoBehaviour {
         //}
 
     }
+
+	public void NextDay()
+	{
+		moment = NIGHT;
+		// Reset NPCs.
+		foreach (GameObject g in GameObject.FindObjectsOfType<GameObject>()) {
+			if (g.tag == "NPC" && g.activeInHierarchy) {
+				Destroy (g);
+			}
+		}
+		// TODO adjust hunger
+		NextMoment ();
+	}
+
+	public void NextMoment()
+	{
+		//Move to next moment
+		moment = (moment + 1) % 4;
+		startMoment = Time.time;
+
+		if (moment == MORNING)
+		{
+			//Reset player disguise
+			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDisguise>().ResetDisguise();
+			player.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+			dayCount++;
+
+			//Update UI day count
+			GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
+
+			//Reset UI fish
+			GameObject[] fish = GameObject.FindGameObjectsWithTag("Fish_UI");
+			foreach (GameObject f in fish)
+			{
+				f.SetActive(false);
+			}
+		}
+	}
 }

@@ -10,7 +10,7 @@ Sprint #1: Basic features
     * Time system [2]
     * Disguise system [3]
     * UI [10]
-3/4 Changed movement from 5 to 10
+3/11 Changed movement from 5 to 10
 
 Sprint #2: More stuff
 - scrum master: Adam Sattaur
@@ -22,5 +22,6 @@ Sprint #2: More stuff
     * Other penguins [2]
     * Fish [4]
     * Presentation [10]
-4/4 Finished Presentation, Sliding, Other penguins, made a homeless friend.
+4/11 Finished Presentation, Sliding, Other penguins, made a homeless friend.
 Adding Feeding system, NPC behaviour, NPC interactions: bumping into people.
+7/11 Added and finished NPC interactions: seeing you slide/flap
