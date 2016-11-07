@@ -19,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D c)
 	{
 		if (c.tag == "Interactive") {
-			InteractiveObject o = c.GetComponent<InteractiveObject>();
+			InteractiveObject o = c.GetComponent<InteractiveObject> ();
 			o.isActive = true;
 			ShowHelpText (o.text);
 		}

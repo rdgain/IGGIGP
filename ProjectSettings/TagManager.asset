@@ -9,6 +9,7 @@ TagManager:
   - Penguin
   - Interactive
   - Fish
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - 
   - 
   - Geometry
-  - 
-  - 
+  - Player
+  - NPCs
   - 
   - 
   - 

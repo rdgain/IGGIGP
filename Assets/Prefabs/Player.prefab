@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011770967660}
   - 212: {fileID: 212000012615992528}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: glove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,9 +42,9 @@ GameObject:
   - 114: {fileID: 114000012358165164}
   - 114: {fileID: 114000012979111352}
   - 114: {fileID: 114000012142790698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010292112616}
   - 212: {fileID: 212000010108778814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013066998830}
   - 212: {fileID: 212000011884278184}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: coat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010763772858}
   - 212: {fileID: 212000010866478208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011415561524}
   - 212: {fileID: 212000011629147590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010691847714}
   - 212: {fileID: 212000012663210906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
