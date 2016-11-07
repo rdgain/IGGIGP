@@ -8,9 +8,9 @@ public class GameManagerScript : MonoBehaviour {
 
     public static int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 10f;
+    public static float lengthOfMoment = 60f;
     public static int moment;
-    public static int MAX_HUNGER = 5, HUNGER_RATE = 200;
+    public static int MAX_HUNGER = 50, HUNGER_RATE = 200;
 
     void Awake()
     {
@@ -85,12 +85,11 @@ public class GameManagerScript : MonoBehaviour {
 			//Update UI day count
 			GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
 
-			//Reset UI fish
-			GameObject[] fish = GameObject.FindGameObjectsWithTag("Fish_UI");
-			foreach (GameObject f in fish)
-			{
-				f.SetActive(false);
-			}
+			//Reset fish
+            for (int i = 0; i < player.GetComponent<FishScript>().fish.Length; i++)
+            {
+                player.GetComponent<FishScript>().fish[i].has = false;
+            }
 		}
 	}
 }

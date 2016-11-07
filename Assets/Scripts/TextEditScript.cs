@@ -13,7 +13,7 @@ public class TextEditScript : MonoBehaviour {
                                  // Use this for initialization
     void Start () {
 
-        int day = GameObject.Find("GameManager").GetComponent<GameManagerScript>().dayCount;
+        int day = GameManagerScript.dayCount;
         print(day);
         GetComponent<Text>().text += day;
         AppendString(day.ToString());
