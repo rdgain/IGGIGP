@@ -17,8 +17,8 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 	private Vector2 velocity = new Vector2();
 	private bool stepping = false;
 	private float to_step;
-	private bool can_jump = false;
-	private bool sliding = false;
+	public bool can_jump = false;
+	public bool sliding = false;
 	private bool righting = false;
 	private int slide_direction = RIGHT;
 

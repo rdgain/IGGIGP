@@ -4,7 +4,9 @@ using System.Collections;
 public class PlayerDisguise : MonoBehaviour {
 
     public static int MAX_DISGUISE = 5, MAX_DELAY = 10;
-    public int disguise, delay;
+    public int delay;
+	public float disguise;
+	public float loss_rate = 0.1f;
 
     public GameObject first, first_ui;
     public GameObject second, second_ui;
@@ -44,19 +46,17 @@ public class PlayerDisguise : MonoBehaviour {
     {
         if (disguise > 0)
         {
-            disguise--;
+			GameObject.Find ("Camera").GetComponent<CameraMovement> ().Shake ();
+			disguise -= loss_rate*Time.deltaTime;
 
-            //remove disguise off player
-            objects[disguise].SetActive(false);
+			int lost_part = Mathf.CeilToInt (disguise);
+			if (lost_part < 5) {
+				//remove disguise off player
+				objects [lost_part].SetActive (false);
 
-            //remove disguise off UI
-            objects_ui[disguise].SetActive(false);
-        }
-        else
-        {
-            // Move player to home and reset disguise
-            transform.position = GameObject.Find("PlayerSpawn").transform.position;
-            ResetDisguise();
+				//remove disguise off UI
+				objects_ui [lost_part].SetActive (false);
+			}
         }
     }
 
