@@ -5,10 +5,19 @@ using System.Collections;
 public class PlayerInteraction : MonoBehaviour {
 
 	public Text help_text;
+    public Text[] options;
+    public Text option1, option2, option3, option4;
+
+    public int numOptions = 4;
+    int interactions = 0;
 
 	// Use this for initialization
 	void Start () {
-	
+        options = new Text[numOptions];
+        options[0] = option1;
+        options[1] = option2;
+        options[2] = option3;
+        options[3] = option4;
 	}
 	
 	// Update is called once per frame
@@ -18,29 +27,47 @@ public class PlayerInteraction : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D c)
 	{
-		if (c.tag == "Interactive") {
+		if (c.tag == "Interactive" || c.tag == "Penguin") {
 			InteractiveObject o = c.GetComponent<InteractiveObject>();
 			o.isActive = true;
-			ShowHelpText (o.text);
+            interactions++;
+            ShowHelpText (o.text);
 		}
 	}
 
 	void OnTriggerExit2D (Collider2D c)
 	{
-		if (c.tag == "Interactive") {
+		if (c.tag == "Interactive" || c.tag == "Penguin") {
 			InteractiveObject o = c.GetComponent<InteractiveObject> ();
 			o.isActive = false;
+            interactions--;
 			HideHelpText ();
 		}
 	}
 
-	void ShowHelpText(string text)
+	public void ShowHelpText(string text)
 	{
 		help_text.text = "[space] " + text;
 	}
 
-	void HideHelpText()
+    public void ShowOptionText(int option, string text)
+    {
+        options[option].text = "[" + (option + 1) + "] " + text;
+    }
+
+    public void HideOptionText()
+    {
+        foreach (Text o in options)
+        {
+            o.text = "";
+        }
+    }
+
+	public void HideHelpText()
 	{
-		help_text.text = "";
+        if (interactions == 0)
+        {
+            help_text.text = "";
+        }
 	}
 }

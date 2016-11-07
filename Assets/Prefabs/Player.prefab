@@ -42,9 +42,10 @@ GameObject:
   - 114: {fileID: 114000012358165164}
   - 114: {fileID: 114000012979111352}
   - 114: {fileID: 114000012142790698}
+  - 114: {fileID: 114000013772458448}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1088a7b9c1104563ab90dac4cf468bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  help_text: {fileID: 0}
+  help_text: {fileID: 114000011410978166, guid: 3fe4912ca94537c4ca2f710be47b5ff5,
+    type: 2}
+  options: []
+  option1: {fileID: 114000012280470126, guid: 51d6d75ecd6628f4d8ff743cedf9d3e7, type: 2}
+  option2: {fileID: 114000010494969264, guid: 3d0673e71b65b424e89cda6d1ccc38ff, type: 2}
+  option3: {fileID: 114000012644609834, guid: 2f2bccfb23a4f0a4fb16b9057800acd7, type: 2}
+  option4: {fileID: 114000013854005052, guid: ba121ef26bf127f44931a42ddc3bdc7e, type: 2}
+  numOptions: 4
 --- !u!114 &114000012358165164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,15 +308,15 @@ MonoBehaviour:
   disguise: 0
   delay: 0
   first: {fileID: 1000011484030066}
-  first_ui: {fileID: 0}
+  first_ui: {fileID: 1000014228856472, guid: 4b5f6bcfc850ccc42a34a735c045173a, type: 2}
   second: {fileID: 1000014245483900}
-  second_ui: {fileID: 0}
+  second_ui: {fileID: 1000010055005302, guid: 30a42b50825b3434e8855b03f7eaac3a, type: 2}
   third: {fileID: 1000010996256864}
-  third_ui: {fileID: 0}
+  third_ui: {fileID: 1000010648265686, guid: 31824cdee05831c48b1e4a0555794613, type: 2}
   fourth: {fileID: 1000010041262314}
-  fourth_ui: {fileID: 0}
+  fourth_ui: {fileID: 1000010252278720, guid: f4ed39dda2cf5d14883c4a579c230603, type: 2}
   fifth: {fileID: 1000011120320756}
-  fifth_ui: {fileID: 0}
+  fifth_ui: {fileID: 1000010035656518, guid: a9a54c73f4a4ea94cb673d07497a3ac4, type: 2}
 --- !u!114 &114000012760997876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -339,7 +347,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 0
   rate: 0
-  hunger_ui: {fileID: 0}
+  hunger_ui: {fileID: 114000010541641710, guid: 2e7062f91ec9550499d591074ad260e6,
+    type: 2}
+--- !u!114 &114000013772458448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010776912334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5b6501b0256b040882974a4c410210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000010108778814
 SpriteRenderer:
   m_ObjectHideFlags: 1

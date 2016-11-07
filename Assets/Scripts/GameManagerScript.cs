@@ -7,9 +7,14 @@ public class GameManagerScript : MonoBehaviour {
 
     public static int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 60f;
+    public static float lengthOfMoment = 10f;
     public static int moment;
-    public static int MAX_HUNGER = 50, HUNGER_RATE = 200;
+    public static int MAX_HUNGER = 5, HUNGER_RATE = 200;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     // Use this for initialization
     void Start () {
@@ -57,5 +62,17 @@ public class GameManagerScript : MonoBehaviour {
         //    case 3: print("Night " + elapsed); break;
         //}
 
+    }
+
+    public static string MomentToText(int moment)
+    {
+        switch (moment)
+        {
+            case 0: return "MORNING"; break;
+            case 1: return "DAY"; break;
+            case 2: return "EVENING"; break;
+            case 3: return "NIGHT"; break;
+            default: return "UNDEFINED";
+        }
     }
 }

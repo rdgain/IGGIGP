@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHunger : MonoBehaviour {
@@ -32,6 +33,7 @@ public class PlayerHunger : MonoBehaviour {
             {
                 // Player died, end of game.
                 Destroy(gameObject);
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
             }
             rate = 0;
         }
