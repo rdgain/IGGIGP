@@ -14,7 +14,6 @@ public class TextEditScript : MonoBehaviour {
     void Start () {
 
         int day = GameManagerScript.dayCount;
-        print(day);
         GetComponent<Text>().text += day;
         AppendString(day.ToString());
 
