@@ -4,13 +4,16 @@ public class GameManagerScript : MonoBehaviour {
 
     float startDay, startMoment;
     public static int dayCount = 1;
-	public static GameObject player;
+	public GameObject player;
 	public GameObject NPC;
+
+	public GameObject day_fish;
 
     public const int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
     public static float lengthOfMoment = 60f;
     public static int moment;
+	public static float time; // range: 0 to lengthOfMoment
     public static int MAX_HUNGER = 50, HUNGER_RATE = 200;
 
     void Awake()
@@ -43,6 +46,7 @@ public class GameManagerScript : MonoBehaviour {
         //    case 3: print("Night " + elapsed); break;
         //}
 
+		time = moment * lengthOfMoment + elapsed;
     }
     
     public static string MomentToText(int moment)
@@ -76,6 +80,8 @@ public class GameManagerScript : MonoBehaviour {
 		moment = (moment + 1) % 4;
 		startMoment = Time.time;
 
+		day_fish.SetActive (false);
+
 		switch (moment)
 		{
 		case MORNING:
@@ -96,13 +102,15 @@ public class GameManagerScript : MonoBehaviour {
 			// Day things:
 			// Spawn NPCs near the market, and add queueing scripts.
 			GameObject market_spawn = GetSpawn ("MarketSpawn");
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 10; i++) {
 				GameObject npc = Instantiate (NPC);
 				npc.transform.position = market_spawn.transform.position;
 			}
 			foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC")) {
-				g.AddComponent<NPCQueue> ();
+				if (g.transform.parent == null)
+					g.AddComponent<NPCQueue> ();
 			}
+			day_fish.SetActive (true);
 			break;
 		}
 	}

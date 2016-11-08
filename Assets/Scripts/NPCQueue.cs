@@ -13,13 +13,13 @@ public class NPCQueue : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		movement = GetComponent<NPCDefault> ();
-		interaction = GetComponentInChildren<NPCInteraction> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!done_initial_setup && GameManagerScript.moment == GameManagerScript.DAY) {
+		if (!done_initial_setup) {
+			movement = GetComponent<NPCDefault> ();
+			interaction = GetComponentInChildren<NPCInteraction> ();
 			// Choose which line to queue for.
 			GameObject[] targets = GameObject.FindGameObjectsWithTag("QueueTarget");
 			queue_target = targets [Random.Range (0, targets.Length)];

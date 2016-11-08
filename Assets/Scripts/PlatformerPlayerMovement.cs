@@ -19,6 +19,7 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 	private float to_step;
 	public bool can_jump = false;
 	public bool sliding = false;
+	public bool stealing = false;
 	private bool righting = false;
 	private int slide_direction = RIGHT;
 

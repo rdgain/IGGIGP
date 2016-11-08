@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca72f820a0f348eabef6f03d1fa7973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  queue_distance: 0.1
+  queue_distance: 1
   queue_direction: {x: 1, y: 0}
   queue_time: 2

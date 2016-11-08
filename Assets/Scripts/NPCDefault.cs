@@ -35,7 +35,7 @@ public class NPCDefault : MonoBehaviour {
 		if (hit.collider) {
 			// We can see the player.
 			PlatformerPlayerMovement player = hit.collider.GetComponent<PlatformerPlayerMovement>();
-			if (player.sliding || !player.can_jump) {
+			if (player.sliding || player.stealing || !player.can_jump) {
 				// Is that...?
 				disguise.DecreaseDisguise();
 			}

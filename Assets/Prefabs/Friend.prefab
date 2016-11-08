@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1000011848285170}
-  player: {fileID: 0}
+  player: {fileID: 1000010776912334, guid: 0afde049624874cb2b35917451935f48, type: 2}
 --- !u!114 &114000011505954840
 MonoBehaviour:
   m_ObjectHideFlags: 1
