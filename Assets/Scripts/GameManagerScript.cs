@@ -5,8 +5,9 @@ public class GameManagerScript : MonoBehaviour {
     float startDay, startMoment;
     public static int dayCount = 1;
 	public static GameObject player;
+	public GameObject NPC;
 
-    public static int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
+    public const int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
     public static float lengthOfMoment = 60f;
     public static int moment;
@@ -48,10 +49,10 @@ public class GameManagerScript : MonoBehaviour {
     {
         switch (moment)
         {
-            case 0: return "MORNING"; break;
-            case 1: return "DAY"; break;
-            case 2: return "EVENING"; break;
-            case 3: return "NIGHT"; break;
+            case 0: return "MORNING";
+            case 1: return "DAY";
+            case 2: return "EVENING";
+            case 3: return "NIGHT";
             default: return "UNDEFINED";
         }
     }
@@ -75,21 +76,50 @@ public class GameManagerScript : MonoBehaviour {
 		moment = (moment + 1) % 4;
 		startMoment = Time.time;
 
-		if (moment == MORNING)
+		switch (moment)
 		{
+		case MORNING:
 			//Reset player disguise
-			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDisguise>().ResetDisguise();
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerDisguise> ().ResetDisguise ();
 			player.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 			dayCount++;
 
 			//Update UI day count
-			GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
+			GameObject.Find ("DayCountText").GetComponent<TextMesh> ().text = "Day: " + dayCount;
 
 			//Reset fish
-            for (int i = 0; i < player.GetComponent<FishScript>().fish.Length; i++)
-            {
-                player.GetComponent<FishScript>().fish[i].has = false;
-            }
+			for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
+				player.GetComponent<FishScript> ().fish [i].has = false;
+			}
+			break;
+		case DAY:
+			// Day things:
+			// Spawn NPCs near the market, and add queueing scripts.
+			GameObject market_spawn = GetSpawn ("MarketSpawn");
+			for (int i = 0; i < 5; i++) {
+				GameObject npc = Instantiate (NPC);
+				npc.transform.position = market_spawn.transform.position;
+			}
+			foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC")) {
+				g.AddComponent<NPCQueue> ();
+			}
+			break;
 		}
+	}
+
+	GameObject GetSpawn(string tag)
+	{
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		GameObject[] possible_spawns = GameObject.FindGameObjectsWithTag (tag);
+		GameObject spawn = null;
+		float max_distance = 0f;
+		foreach (GameObject g in possible_spawns) {
+			float distance = Vector2.Distance (player.transform.position, g.transform.position);
+			if (distance > max_distance) {
+				max_distance = distance;
+				spawn = g;
+			}
+		}
+		return spawn;
 	}
 }
