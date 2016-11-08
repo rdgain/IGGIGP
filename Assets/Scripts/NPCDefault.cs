@@ -35,7 +35,7 @@ public class NPCDefault : MonoBehaviour {
 		if (hit.collider) {
 			// We can see the player.
 			PlatformerPlayerMovement player = hit.collider.GetComponent<PlatformerPlayerMovement>();
-			if (player.sliding || !player.can_jump) {
+			if (player.sliding || player.stealing || !player.can_jump) {
 				// Is that...?
 				disguise.DecreaseDisguise();
 			}
@@ -44,14 +44,19 @@ public class NPCDefault : MonoBehaviour {
 
 		if (chasing) {
 			destination = player.transform.position.x;
-			body.velocity = new Vector2 (destination > transform.position.x ? run_speed : -run_speed, 0);
+			body.velocity = new Vector2 (destination > transform.position.x ? run_speed : -run_speed, body.velocity.y);
 		} else {
-			if (Mathf.Abs (destination - transform.position.x) < distance_threshold || Time.time > reconsider_goal_time) {
-				destination = transform.position.x + Random.value * 10 - 5;
-				reconsider_goal_time = Time.time + 10;
+			// Head towards goal.
+			body.velocity = new Vector2(destination > transform.position.x ? speed : -speed, body.velocity.y);
+			if (AtGoal () || (!override_destination && Time.time > reconsider_goal_time)) {
+				// If we're here, stop.
+				body.velocity = new Vector2 ();
+				// If destination is not overriden, select a new destination.
+				if (!override_destination) {
+					destination = transform.position.x + (Random.value * 10 - 5);
+					reconsider_goal_time = Time.time + 10;
+				}
 			}
-			else
-				body.velocity = new Vector2 (destination > transform.position.x ? speed : -speed, 0);
 		}
 
 		if (body.velocity.x > 0)
@@ -60,5 +65,10 @@ public class NPCDefault : MonoBehaviour {
 			facing_right = false;
 
 		GetComponentInChildren<SpriteRenderer> ().flipX = !facing_right;
+	}
+
+	bool AtGoal()
+	{
+		return Mathf.Abs (destination - transform.position.x) < distance_threshold;
 	}
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class NPCInteraction : MonoBehaviour {
 
 	public float bump_penalty = 1f;
+	public bool collision_enabled = true;
 	private PlayerDisguise disguise;
 	private NPCDefault movement;
 
@@ -20,7 +21,7 @@ public class NPCInteraction : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D c)
 	{
-		if (c.gameObject.tag == "Player") {
+		if (collision_enabled && c.gameObject.tag == "Player") {
 			if (c.gameObject.GetComponent<Rigidbody2D> ().velocity.magnitude > 0.1) {
 				disguise.disguise -= bump_penalty * Time.deltaTime;
 				disguise.DecreaseDisguise ();

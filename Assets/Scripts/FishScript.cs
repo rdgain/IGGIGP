@@ -12,7 +12,7 @@ public class FishScript : MonoBehaviour {
         fish = new Fish[GameManagerScript.numMoments];	
         for (int i = 0; i < fish.Length; i++)
         {
-            fish[i] = new Fish(true, i * FISH_VALUE);
+			fish[i] = new Fish(false, i * FISH_VALUE);
         }
 	}
 	

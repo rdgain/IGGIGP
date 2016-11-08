@@ -40,7 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9b4457185364c4893ed5274c1730de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayCount: 1
+  player: {fileID: 1000010776912334, guid: 0afde049624874cb2b35917451935f48, type: 2}
+  NPC: {fileID: 1000012622200724, guid: 6c614e834e604498dbac2dd07d361226, type: 2}
+  day_fish: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
