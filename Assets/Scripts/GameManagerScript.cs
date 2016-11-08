@@ -8,9 +8,9 @@ public class GameManagerScript : MonoBehaviour {
 
     public static int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 60f;
+    public static float lengthOfMoment = 10f;
     public static int moment;
-    public static int MAX_HUNGER = 50, HUNGER_RATE = 200;
+    public static int MAX_HUNGER = 100, HUNGER_RATE = 200;
 
     void Awake()
     {

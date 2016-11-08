@@ -13,7 +13,9 @@ public class PlayerHunger : MonoBehaviour {
 	void Start () {
         rate = 0;
         hunger = 0;
-	}
+        hunger_ui.maxValue = GameManagerScript.MAX_HUNGER;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

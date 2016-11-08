@@ -5,6 +5,7 @@ public class FeedingScript : MonoBehaviour
 {
     public TextMesh t;
     public GameObject player;
+    public bool feedPlayer = false;
 
     PlayerInteraction playerInteraction;
     FishScript fishScript;
@@ -94,9 +95,15 @@ public class FeedingScript : MonoBehaviour
     void ReduceHunger(int i)
     {
         // Reduce hunger by value of fish and display text
-        if (GetComponent<PlayerHunger>().hunger > fishScript.fish[i].value)
-            GetComponent<PlayerHunger>().hunger -= fishScript.fish[i].value;
-        else GetComponent<PlayerHunger>().hunger = 0;
+        if (!feedPlayer) 
+            if (GetComponent<PlayerHunger>().hunger > fishScript.fish[i].value) 
+                GetComponent<PlayerHunger>().hunger -= fishScript.fish[i].value;
+            else GetComponent<PlayerHunger>().hunger = 0;
+        else 
+            if (player.GetComponent<PlayerHunger>().hunger > fishScript.fish[i].value) 
+                player.GetComponent<PlayerHunger>().hunger -= fishScript.fish[i].value;
+            else player.GetComponent<PlayerHunger>().hunger = 0;
+
         ShowText("Om nom nom");
         fed = true;
         playerInteraction.HideOptionText();
