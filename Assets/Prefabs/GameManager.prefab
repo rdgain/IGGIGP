@@ -46,6 +46,9 @@ MonoBehaviour:
   dayCountText: {fileID: 102000013109071188, guid: bd1308b958c82484c8587dfc165ad2e9,
     type: 2}
   day_fish: {fileID: 1000014009419014, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
+  evening_fish: {fileID: 0}
+  NO_NPC_MARKET: 4
+  NO_NPC_RESTAURANT: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

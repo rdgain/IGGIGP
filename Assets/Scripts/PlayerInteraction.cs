@@ -70,4 +70,9 @@ public class PlayerInteraction : MonoBehaviour {
             help_text.text = "";
         }
 	}
+
+    public void ForceHideHelpText()
+    {
+        help_text.text = "";
+    }
 }

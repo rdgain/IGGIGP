@@ -9,6 +9,8 @@ public class PlayerHunger : MonoBehaviour {
     public int rate;
     public Slider hunger_ui;
 
+    public int hunger_penalty;
+
 	// Use this for initialization
 	void Start () {
         rate = 0;
@@ -24,22 +26,45 @@ public class PlayerHunger : MonoBehaviour {
 
         if (rate > GameManagerScript.HUNGER_RATE)
         {
-            if (hunger < GameManagerScript.MAX_HUNGER)
-            {
-                hunger++;
-
-                // Update hunger UI
-                hunger_ui.value = hunger;
-                
-            } else
-            {
-                // Player died, end of game.
-                Destroy(gameObject);
-                SceneManager.LoadScene(2, LoadSceneMode.Single);
-            }
+            IncreaseHunger(1);
             rate = 0;
         }
 
 	
 	}
+
+    public void HungerPenalty()
+    {
+        IncreaseHunger(hunger_penalty);
+    }
+
+    void IncreaseHunger(int amount)
+    {
+        if (hunger + amount <= GameManagerScript.MAX_HUNGER)
+        {
+            hunger += amount;
+
+            // Update hunger UI
+            hunger_ui.value = hunger;
+
+        }
+        else
+        {
+            Destroy(gameObject);
+
+            if (gameObject.tag == "Player")
+            {
+                // Player died, end of game.
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
+            }
+            else
+            {
+                if (GameObject.FindGameObjectsWithTag("Penguin").Length == 0)
+                {
+                    //All family died, end of game.
+                    SceneManager.LoadScene(2, LoadSceneMode.Single);
+                }
+            }
+        }
+    }
 }
