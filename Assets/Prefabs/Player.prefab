@@ -333,7 +333,7 @@ MonoBehaviour:
   step_length: 0.3
   slide_speed: 10
   turn_speed: 100
-  jump_speed: 3
+  jump_speed: 8
   gravity: 1
   can_jump: 0
   sliding: 0

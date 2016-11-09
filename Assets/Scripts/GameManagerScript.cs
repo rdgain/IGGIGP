@@ -12,7 +12,7 @@ public class GameManagerScript : MonoBehaviour {
 
     public const int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 10f;
+    public static float lengthOfMoment = 60f;
     public static int moment;
 
 	public static float time; // range: 0 to lengthOfMoment
@@ -91,6 +91,8 @@ public class GameManagerScript : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerDisguise> ().ResetDisguise ();
 			player.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 			dayCount++;
+
+			GameObject.Find ("UISlider").SetActive (false);
 
 			//Update UI day count
 			GameObject.Find ("DayCountText").GetComponent<Text> ().text = "Day: " + dayCount;

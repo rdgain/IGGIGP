@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bump_penalty: 1
+  collision_enabled: 1
 --- !u!114 &114000013731627282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,8 +176,8 @@ MonoBehaviour:
   override_destination: 0
   distance_threshold: 1
   chasing: 0
-  speed: 0.5
-  run_speed: 1
+  speed: 1.5
+  run_speed: 2
 --- !u!212 &212000014123526700
 SpriteRenderer:
   m_ObjectHideFlags: 1
