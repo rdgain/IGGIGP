@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour {
@@ -7,8 +7,13 @@ public class GameManagerScript : MonoBehaviour {
     public static int dayCount = 1;
 	public GameObject player;
 	public GameObject NPC;
+    public GameObject playerSpawn;
+    public TextMesh dayCountText;
 
-	public GameObject day_fish;
+	public GameObject day_fish, evening_fish;
+
+    public int NO_NPC_MARKET;
+    public int NO_NPC_RESTAURANT;
 
     public const int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
@@ -28,7 +33,8 @@ public class GameManagerScript : MonoBehaviour {
         moment = MORNING;
         startDay = Time.time;
         startMoment = Time.time;
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -63,16 +69,10 @@ public class GameManagerScript : MonoBehaviour {
         }
     }
 
+    // Method to force the next day
 	public void NextDay()
 	{
 		moment = NIGHT;
-		// Reset NPCs.
-		foreach (GameObject g in GameObject.FindObjectsOfType<GameObject>()) {
-			if (g.tag == "NPC" && g.activeInHierarchy) {
-				Destroy (g);
-			}
-		}
-		// TODO adjust hunger
 		NextMoment ();
 	}
 
@@ -82,40 +82,70 @@ public class GameManagerScript : MonoBehaviour {
 		moment = (moment + 1) % 4;
 		startMoment = Time.time;
 
-		day_fish.SetActive (false);
+        day_fish.SetActive(false);
+        evening_fish.SetActive(false);
 
-		switch (moment)
+        switch (moment)
 		{
-		case MORNING:
-			//Reset player disguise
-			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerDisguise> ().ResetDisguise ();
-			player.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
-			dayCount++;
+		    case MORNING:
+                dayCount++;
+                player.GetComponent<PlayerInteraction>().ForceHideHelpText();
 
-			GameObject.Find ("UISlider").SetActive (false);
+                // Reset NPCs.
+                foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC"))
+                {
+                    if (g.activeSelf)
+                    {
+                        Destroy(g);
+                    }
+                }
 
-			//Update UI day count
-			GameObject.Find ("DayCountText").GetComponent<Text> ().text = "Day: " + dayCount;
+                // TODO adjust hunger
+                foreach (GameObject g in GameObject.FindGameObjectsWithTag("Penguin"))
+                {
+                    g.GetComponent<PlayerHunger>().HungerPenalty();
+                }
 
-			//Reset fish
-			for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
-				player.GetComponent<FishScript> ().fish [i].has = false;
-			}
-			break;
-		case DAY:
-			// Day things:
-			// Spawn NPCs near the market, and add queueing scripts.
-			GameObject market_spawn = GetSpawn ("MarketSpawn");
-			for (int i = 0; i < 10; i++) {
-				GameObject npc = Instantiate (NPC);
-				npc.transform.position = market_spawn.transform.position;
-			}
-			foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC")) {
-				if (g.transform.parent == null)
-					g.AddComponent<NPCQueue> ();
-			}
-			day_fish.SetActive (true);
-			break;
+                //Reset player disguise
+                player.GetComponent<PlayerDisguise> ().ResetDisguise ();
+
+                //Reset player position to spawn point
+			    player.transform.position = playerSpawn.transform.position;
+
+			    //Update UI day count
+			    GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
+
+			    //Reset fish
+			    for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
+				    player.GetComponent<FishScript> ().fish [i].has = false;
+			    }
+			    break;
+		    case DAY:
+			    // Day things:
+			    // Spawn NPCs near the market, and add queueing scripts.
+			    GameObject market_spawn = GetSpawn ("MarketSpawn");
+			    for (int i = 0; i < NO_NPC_MARKET; i++) {
+				    GameObject npc = Instantiate (NPC);
+				    npc.transform.position = market_spawn.transform.position;
+			    }
+			    foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC")) {
+				    if (g.transform.parent == null)
+					    g.AddComponent<NPCQueue> ();
+			    }
+			    day_fish.SetActive (true);
+			    break;
+            case EVENING:
+                //Evening things:
+                // Spawn NPCs at the restaurant.
+                GameObject restaurant_spawn = GameObject.Find("RestaurantSpawn");
+                for (int i = 0; i < NO_NPC_RESTAURANT; i++)
+                {
+                    GameObject npc = Instantiate(NPC);
+                    npc.transform.position = restaurant_spawn.transform.position;
+                }
+                //evening_fish.SetActive(true);
+
+                break;
 		}
 	}
 

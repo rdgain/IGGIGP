@@ -26,9 +26,13 @@ public class FriendScript : MonoBehaviour {
 	void ContinueConversation()
 	{
 		if (GameManagerScript.moment == GameManagerScript.MORNING)
-			ShowText ("Hi!\nCome back at night for fish.");
-		if (GameManagerScript.moment == GameManagerScript.NIGHT) {
-			ShowText ("Welcome back! Have a fish.");
+			ShowText ("Hi!\nI hear they are just unloading fish at the docks!");
+        if (GameManagerScript.moment == GameManagerScript.DAY)
+            ShowText("You look beautiful, friend.\nCan you get me a hat from the market?");
+        if (GameManagerScript.moment == GameManagerScript.EVENING)
+            ShowText("Did you see that cool restaurant they just opened near the docks?");
+        if (GameManagerScript.moment == GameManagerScript.NIGHT) {
+			ShowText ("Welcome, friend! Have a fish.");
             player.GetComponent<FishScript>().fish[GameManagerScript.NIGHT].has = true;
 		}
 	}

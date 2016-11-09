@@ -30,17 +30,23 @@ public class NPCDefault : MonoBehaviour {
 	 * Otherwise, wander randomly.
 	 * Finally, update sprite and/or animation.
 	 **/
-	void Update () {
-		RaycastHit2D hit = Physics2D.Raycast (transform.position, facing_right ? Vector2.right : Vector2.left, Mathf.Infinity, 1 << LayerMask.NameToLayer("Player"));
-		if (hit.collider) {
-			// We can see the player.
-			PlatformerPlayerMovement player = hit.collider.GetComponent<PlatformerPlayerMovement>();
-			if (player.sliding || player.stealing || !player.can_jump) {
-				// Is that...?
-				disguise.DecreaseDisguise();
-			}
-			chasing = disguise.disguise < 0;
-		}
+	void Update ()
+    {
+        if (transform.FindChild("HumanSprite").GetComponent<SpriteRenderer>().isVisible)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, facing_right ? Vector2.right : Vector2.left, Mathf.Infinity, 1 << LayerMask.NameToLayer("Player"));
+            if (hit.collider)
+            {
+                // We can see the player.
+                PlatformerPlayerMovement player = hit.collider.GetComponent<PlatformerPlayerMovement>();
+                if (player.sliding || player.stealing || !player.can_jump)
+                {
+                    // Is that...?
+                    disguise.DecreaseDisguise();
+                }
+                chasing = disguise.disguise < 0;
+            }
+        }
 
 		if (chasing) {
 			destination = player.transform.position.x;
