@@ -14,7 +14,7 @@ public class GameManagerScript : MonoBehaviour {
 
     public const int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 10f;
+    public static float lengthOfMoment = 20f;
     public static int moment;
 
 	public static float time; // range: 0 to lengthOfMoment
@@ -69,8 +69,8 @@ public class GameManagerScript : MonoBehaviour {
 	{
 		moment = NIGHT;
 		// Reset NPCs.
-		foreach (GameObject g in GameObject.FindObjectsOfType<GameObject>()) {
-			if (g.tag == "NPC" && g.activeInHierarchy) {
+		foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC")) {
+			if (g.activeSelf) {
 				Destroy (g);
 			}
 		}
@@ -96,7 +96,7 @@ public class GameManagerScript : MonoBehaviour {
 			dayCount++;
 
 			//Update UI day count
-			dayCountText.text = "Day: " + dayCount;
+			GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
 
 			//Reset fish
 			for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
