@@ -7,6 +7,8 @@ public class GameManagerScript : MonoBehaviour {
     public static int dayCount = 1;
 	public GameObject player;
 	public GameObject NPC;
+    public GameObject playerSpawn;
+    public TextMesh dayCountText;
 
 	public GameObject day_fish;
 
@@ -87,13 +89,14 @@ public class GameManagerScript : MonoBehaviour {
 		switch (moment)
 		{
 		case MORNING:
-			//Reset player disguise
-			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerDisguise> ().ResetDisguise ();
-			player.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+            //Reset player disguise
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerDisguise> ().ResetDisguise ();
+			player.transform.position = playerSpawn.transform.position;
 			dayCount++;
 
 			//Update UI day count
-			GameObject.Find ("DayCountText").GetComponent<Text> ().text = "Day: " + dayCount;
+			dayCountText.text = "Day: " + dayCount;
 
 			//Reset fish
 			for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
