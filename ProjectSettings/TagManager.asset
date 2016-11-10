@@ -15,6 +15,7 @@ TagManager:
   - NPC_R
   - DockSpawn
   - RestaurantSpawn
+  - Death
   layers:
   - Default
   - TransparentFX

@@ -114,6 +114,13 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D c)
+	{
+		if (c.gameObject.tag == "Death") {
+			GetComponent<PlayerHunger> ().hunger = 0;
+		}
+	}
+
 	void OnCollisionStay2D(Collision2D c)
 	{
 		if (c.gameObject.tag == "Floor") {
