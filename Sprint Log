@@ -36,4 +36,21 @@ Sprint #3: Adding game areas
     * Environment: docks [7]
     * NPC behaviour: docks [7]
     * NPC interactions: seeing you steal [2]
-
+	
+Added bugs & minor tweaks:
+* UI behind object [FIXED]
+* Another spawn in restaurant [FIXED]
+* Missing references when loading new scene [FIXED]
+* Move hat stall [FIXED]
+* Decrease hunger rate [FIXED]
+* signs to friend's location [FIXED]
+* friend stands out [FIXED]
+* dialogue appears in bottom right with names to who said what [FIXED]
+* warnings in top left when a new moment has begun, a new day has begun or a family member has died [FIXED]
+* make hunger bars more obvious that they're a bad thing [FIXED]
+* highlight player hunger bar [FIXED]
+* disguise UI more obvious [FIXED]
+* corners in floor you get stuck in [FIXED]
+* Camera background [FIXED]
+* Sea death [FIXED]
+* Leaderboard
