@@ -3,8 +3,9 @@ using System.Collections;
 
 public class RestaurantOrderScript : MonoBehaviour
 {
-    public GameObject text;
-    public GameObject player;
+    GameObject text;
+    public string orderText = "OrderText";
+    GameObject player;
     public GameObject evening_fish;
 
     InteractiveObject me;
@@ -14,6 +15,8 @@ public class RestaurantOrderScript : MonoBehaviour
     void Start()
     {
         me = GetComponent<InteractiveObject>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        text = GameObject.Find(orderText);
     }
 
     // Update is called once per frame
