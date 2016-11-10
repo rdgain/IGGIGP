@@ -19,20 +19,21 @@ public class FriendScript : MonoBehaviour {
 			ContinueConversation ();
 		}
 		if (Vector3.Distance (transform.position, player.transform.position) > DISTANCE) {
-			ShowText ("");
-		}
+			HideText();
+
+        }
 	}
 
 	void ContinueConversation()
 	{
 		if (GameManagerScript.moment == GameManagerScript.MORNING)
-			ShowText ("Hi!\nI hear they are just unloading fish at the docks!");
+			ShowText ("FRIEND: Hi!\nFRIEND: I hear they are just unloading fish at the docks!");
         if (GameManagerScript.moment == GameManagerScript.DAY)
-            ShowText("You look beautiful, friend.\nCan you get me a hat from the market?");
+            ShowText("FRIEND: You look beautiful, friend.\nFRIEND: Can you get me a hat from the market?");
         if (GameManagerScript.moment == GameManagerScript.EVENING)
-            ShowText("Did you see that cool restaurant they just opened near the docks?");
+            ShowText("FRIEND: Did you see that cool restaurant they just opened near the docks?");
         if (GameManagerScript.moment == GameManagerScript.NIGHT) {
-			ShowText ("Welcome, friend! Have a fish.");
+			ShowText ("FRIEND: Welcome, friend! Have a fish.");
             player.GetComponent<FishScript>().fish[GameManagerScript.NIGHT].has = true;
 		}
 	}
@@ -40,5 +41,11 @@ public class FriendScript : MonoBehaviour {
 	void ShowText(string s)
 	{
 		text.GetComponent<TextMesh> ().text = s;
-	}
+
+    }
+
+    void HideText()
+    {
+        text.GetComponent<TextMesh>().text = "";
+    }
 }

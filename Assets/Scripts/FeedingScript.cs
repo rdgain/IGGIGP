@@ -7,6 +7,8 @@ public class FeedingScript : MonoBehaviour
     public GameObject player;
     public bool feedPlayer = false;
 
+    public string who;
+
     PlayerInteraction playerInteraction;
     FishScript fishScript;
     InteractiveObject me;
@@ -50,11 +52,11 @@ public class FeedingScript : MonoBehaviour
             {
                 ReduceHunger(3);
             }
-            else if (Input.GetKeyDown(KeyCode.Escape)) // use Space to cancel action
+            else if (Input.GetKeyDown(KeyCode.Escape)) // use Escape to cancel action
             {
                 startedFeeding = false;
                 ShowText("");
-                playerInteraction.HideHelpText();
+                playerInteraction.ForceHideHelpText();
                 playerInteraction.HideOptionText();
             }
         }
@@ -104,7 +106,7 @@ public class FeedingScript : MonoBehaviour
                 player.GetComponent<PlayerHunger>().hunger -= fishScript.fish[i].value;
             else player.GetComponent<PlayerHunger>().hunger = 0;
 
-        ShowText("Om nom nom");
+        ShowText(who + ": Om nom nom");
         fed = true;
         playerInteraction.HideOptionText();
         startedFeeding = false;

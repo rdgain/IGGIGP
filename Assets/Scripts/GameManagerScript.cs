@@ -10,14 +10,20 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject playerSpawn;
     public TextMesh dayCountText;
 
-	public GameObject day_fish, evening_fish;
+
+    TextMesh warningText;
+    float warningDuration = 4f;
+    float startTimeWarning;
+    bool displayingWarning = false;
+
+    public GameObject day_fish, evening_fish;
 
     public int NO_NPC_MARKET;
     public int NO_NPC_RESTAURANT;
 
     public const int MORNING = 0, DAY = 1, EVENING = 2, NIGHT = 3;
     public static int numMoments = 4;
-    public static float lengthOfMoment = 60f;
+    public static float lengthOfMoment = 10f;
     public static int moment;
 
 	public static float time; // range: 0 to lengthOfMoment
@@ -34,10 +40,21 @@ public class GameManagerScript : MonoBehaviour {
         startDay = Time.time;
         startMoment = Time.time;
         player = GameObject.FindGameObjectWithTag("Player");
+        warningText = GameObject.Find("WarningText").GetComponent<TextMesh>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (!displayingWarning)
+            startTimeWarning = Time.time;
+        else
+        {
+            if (Time.time - startTimeWarning > warningDuration)
+            {
+                HideWarning();
+            }
+        }
 
         float elapsed = Time.time - startMoment;
 
@@ -82,12 +99,17 @@ public class GameManagerScript : MonoBehaviour {
 		moment = (moment + 1) % 4;
 		startMoment = Time.time;
 
+        DisplayWarning("New moment: " + MomentToText(moment));
+
         day_fish.SetActive(false);
         evening_fish.SetActive(false);
 
         switch (moment)
 		{
 		    case MORNING:
+
+                AddWarning("\nIT'S A NEW DAY!");
+
                 dayCount++;
                 player.GetComponent<PlayerInteraction>().ForceHideHelpText();
 
@@ -164,4 +186,28 @@ public class GameManagerScript : MonoBehaviour {
 		}
 		return spawn;
 	}
+
+    public void DisplayWarning(string s)
+    {
+        displayingWarning = true;
+        if (warningText.text == "")
+            warningText.text = s;
+        else // there's already a message displayed, so add the new one and reset warning timer
+        {
+            warningText.text += "\n" + s;
+            startTimeWarning = Time.time;
+        }
+    }
+
+    public void AddWarning(string s)
+    {
+        displayingWarning = true;
+        warningText.text += s;
+    }
+
+    public void HideWarning()
+    {
+        warningText.text = "";
+        displayingWarning = false;
+    }
 }

@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - QueueTarget
   - MarketSpawn
+  - NPC_R
   layers:
   - Default
   - TransparentFX

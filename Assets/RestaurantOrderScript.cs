@@ -33,11 +33,11 @@ public class RestaurantOrderScript : MonoBehaviour
     {
         if (GameManagerScript.moment != GameManagerScript.EVENING)
         {
-            ShowText("Closed! Come back in the evening, please.");
+            ShowText("ORDERING MACHINE: Closed! \nORDERING MACHINE: Come back in the evening, please.");
         } 
         else
         {
-            ShowText("Thank you for your order, it will be with you shortly.");
+            ShowText("ORDERING MACHINE: Thank you for your order, it will be with you shortly.");
             evening_fish.SetActive(true);
         }
     }
