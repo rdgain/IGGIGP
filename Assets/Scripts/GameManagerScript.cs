@@ -5,13 +5,14 @@ public class GameManagerScript : MonoBehaviour {
 
     float startDay, startMoment;
     public static int dayCount = 1;
-	public GameObject player;
 	public GameObject NPC;
     public GameObject playerSpawn;
-    public TextMesh dayCountText;
 
 
+    TextMesh dayCountText;
     TextMesh warningText;
+    GameObject player;
+
     float warningDuration = 4f;
     float startTimeWarning;
     bool displayingWarning = false;
@@ -42,6 +43,7 @@ public class GameManagerScript : MonoBehaviour {
         startMoment = Time.time;
         player = GameObject.FindGameObjectWithTag("Player");
         warningText = GameObject.Find("WarningText").GetComponent<TextMesh>();
+        dayCountText = GameObject.Find("DayCountText").GetComponent<TextMesh>();
     }
 	
 	// Update is called once per frame

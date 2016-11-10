@@ -8,11 +8,13 @@ public class PlayerDisguise : MonoBehaviour {
 	public float disguise;
 	public float loss_rate = 0.1f;
 
-    public GameObject first, first_ui, first_ui1;
-    public GameObject second, second_ui, second_ui1;
-    public GameObject third, third_ui, third_ui1;
-    public GameObject fourth, fourth_ui, fourth_ui1;
-    public GameObject fifth, fifth_ui, fifth_ui1;
+    public string disguise_name1, disguise_name2, disguise_name3, disguise_name4, disguise_name5;
+
+    GameObject first, first_ui, first_ui1;
+    GameObject second, second_ui, second_ui1;
+    GameObject third, third_ui, third_ui1;
+    GameObject fourth, fourth_ui, fourth_ui1;
+    GameObject fifth, fifth_ui, fifth_ui1;
 
     GameObject[] objects, objects_ui, objects_ui1;
 
@@ -25,6 +27,24 @@ public class PlayerDisguise : MonoBehaviour {
         objects = new GameObject[MAX_DISGUISE];
         objects_ui = new GameObject[MAX_DISGUISE];
         objects_ui1 = new GameObject[MAX_DISGUISE];
+
+        first = GameObject.Find(disguise_name1);
+        second = GameObject.Find(disguise_name2);
+        third = GameObject.Find(disguise_name3);
+        fourth = GameObject.Find(disguise_name4);
+        fifth = GameObject.Find(disguise_name5);
+
+        first_ui = GameObject.Find(disguise_name1 + "_ui");
+        second_ui = GameObject.Find(disguise_name2 + "_ui");
+        third_ui = GameObject.Find(disguise_name3 + "_ui");
+        fourth_ui = GameObject.Find(disguise_name4 + "_ui");
+        fifth_ui = GameObject.Find(disguise_name5 + "_ui");
+
+        first_ui1 = GameObject.Find(disguise_name1 + "_ui1");
+        second_ui1 = GameObject.Find(disguise_name2 + "_ui1");
+        third_ui1 = GameObject.Find(disguise_name3 + "_ui1");
+        fourth_ui1 = GameObject.Find(disguise_name4 + "_ui1");
+        fifth_ui1 = GameObject.Find(disguise_name5 + "_ui1");
 
         objects[0] = first;
         objects[1] = second;

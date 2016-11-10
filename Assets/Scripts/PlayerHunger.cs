@@ -7,7 +7,8 @@ public class PlayerHunger : MonoBehaviour {
 
     public int hunger;
     public int rate;
-    public Slider hunger_ui;
+    Slider hunger_ui;
+    public string ui_name;
 
     public int hunger_penalty = 10;
     GameManagerScript gameManager;
@@ -16,6 +17,9 @@ public class PlayerHunger : MonoBehaviour {
 	void Start () {
         rate = 0;
         hunger = GameManagerScript.MAX_HUNGER;
+
+        hunger_ui = GameObject.Find(ui_name).GetComponent<Slider>();
+
         hunger_ui.maxValue = GameManagerScript.MAX_HUNGER;
         hunger_ui.value = GameManagerScript.MAX_HUNGER;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
