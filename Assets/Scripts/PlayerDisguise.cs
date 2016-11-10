@@ -8,13 +8,13 @@ public class PlayerDisguise : MonoBehaviour {
 	public float disguise;
 	public float loss_rate = 0.1f;
 
-    public GameObject first, first_ui;
-    public GameObject second, second_ui;
-    public GameObject third, third_ui;
-    public GameObject fourth, fourth_ui;
-    public GameObject fifth, fifth_ui;
+    public GameObject first, first_ui, first_ui1;
+    public GameObject second, second_ui, second_ui1;
+    public GameObject third, third_ui, third_ui1;
+    public GameObject fourth, fourth_ui, fourth_ui1;
+    public GameObject fifth, fifth_ui, fifth_ui1;
 
-    GameObject[] objects, objects_ui;
+    GameObject[] objects, objects_ui, objects_ui1;
 
     // Use this for initialization
     void Start () {
@@ -24,6 +24,7 @@ public class PlayerDisguise : MonoBehaviour {
 
         objects = new GameObject[MAX_DISGUISE];
         objects_ui = new GameObject[MAX_DISGUISE];
+        objects_ui1 = new GameObject[MAX_DISGUISE];
 
         objects[0] = first;
         objects[1] = second;
@@ -36,6 +37,12 @@ public class PlayerDisguise : MonoBehaviour {
         objects_ui[2] = third_ui;
         objects_ui[3] = fourth_ui;
         objects_ui[4] = fifth_ui;
+
+        objects_ui1[0] = first_ui1;
+        objects_ui1[1] = second_ui1;
+        objects_ui1[2] = third_ui1;
+        objects_ui1[3] = fourth_ui1;
+        objects_ui1[4] = fifth_ui1;
     }
 	
 	// Update is called once per frame
@@ -56,6 +63,7 @@ public class PlayerDisguise : MonoBehaviour {
 
 				//remove disguise off UI
 				objects_ui [lost_part].SetActive (false);
+                objects_ui1[lost_part].SetActive(false);
 			}
         }
     }
@@ -70,6 +78,11 @@ public class PlayerDisguise : MonoBehaviour {
         }
 
         foreach (GameObject o in objects_ui)
+        {
+            o.SetActive(true);
+        }
+
+        foreach (GameObject o in objects_ui1)
         {
             o.SetActive(true);
         }
