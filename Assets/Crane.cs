@@ -58,7 +58,8 @@ public class Crane : MonoBehaviour {
 			}
 		}
 		if (Time.time > start_time + stage_time + pause_time) {
-			stage++;
+			if (forwards || GameManagerScript.moment == GameManagerScript.MORNING)
+				stage++;
 			unloaded = false;
 			Destroy (my_crate);
 			stage = stage % 3;
@@ -81,11 +82,14 @@ public class Crane : MonoBehaviour {
 				target = end_pos;
 				break;
 			}
-		} else if (GameManagerScript.moment == GameManagerScript.MORNING) {
+		} else {
 			switch (stage) {
 			case 0:
 				source = end_pos;
-				target = above_end_pos;
+				if (GameManagerScript.moment == GameManagerScript.MORNING)
+					target = above_end_pos;
+				else
+					target = end_pos;
 				break;
 			case 1:
 				source = above_end_pos;
