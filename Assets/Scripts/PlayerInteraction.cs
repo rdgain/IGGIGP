@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour {
 
-	public Text help_text;
+	Text help_text;
     public Text[] options;
     public Text option1, option2, option3, option4;
 
@@ -13,6 +13,13 @@ public class PlayerInteraction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        help_text = GameObject.Find("Help Text").GetComponent<Text>();
+
+        option1 = GameObject.Find("Option1").GetComponent<Text>();
+        option2 = GameObject.Find("Option2").GetComponent<Text>();
+        option3 = GameObject.Find("Option3").GetComponent<Text>();
+        option4 = GameObject.Find("Option4").GetComponent<Text>();
+
         options = new Text[numOptions];
         options[0] = option1;
         options[1] = option2;

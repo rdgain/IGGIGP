@@ -3,8 +3,9 @@ using System.Collections;
 
 public class FeedingScript : MonoBehaviour
 {
-    public TextMesh t;
-    public GameObject player;
+    public string FeedText;
+    TextMesh t;
+    GameObject player;
     public bool feedPlayer = false;
 
     public string who;
@@ -23,6 +24,8 @@ public class FeedingScript : MonoBehaviour
     void Start()
     {
         me = GetComponent<InteractiveObject>();
+        t = GameObject.Find(FeedText).GetComponent<TextMesh>();
+        player = GameObject.FindGameObjectWithTag("Player");
         fishScript = player.GetComponent<FishScript>();
         playerInteraction = player.GetComponent<PlayerInteraction>();
         fed = false;
