@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class FriendScript : MonoBehaviour {
-	public GameObject text;
-	public GameObject player;
+	GameObject text;
+	GameObject player;
+
+    public string friendText = "FriendText";
 
 	InteractiveObject me;
     public static int DISTANCE = 5;
 
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
+        text = GameObject.Find(friendText);
 		me = GetComponent<InteractiveObject> ();
 	}
 	
