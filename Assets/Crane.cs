@@ -37,7 +37,7 @@ public class Crane : MonoBehaviour {
 		start_pos = start.transform.position;
 		above_start_pos = new Vector2 (start_pos.x, intermediate.transform.position.y);
 		end_pos = end.transform.position;
-		above_end_pos = new Vector2 (end_pos.x, above_start_pos.y);
+		above_end_pos = intermediate.transform.position;
 
 		transform.position = start_pos;
 	}
@@ -58,7 +58,6 @@ public class Crane : MonoBehaviour {
 			}
 		}
 		if (Time.time > start_time + stage_time + pause_time) {
-			if (forwards || GameManagerScript.moment == GameManagerScript.MORNING)
 				stage++;
 			unloaded = false;
 			Destroy (my_crate);
@@ -86,10 +85,7 @@ public class Crane : MonoBehaviour {
 			switch (stage) {
 			case 0:
 				source = end_pos;
-				if (GameManagerScript.moment == GameManagerScript.MORNING)
-					target = above_end_pos;
-				else
-					target = end_pos;
+				target = above_end_pos;
 				break;
 			case 1:
 				source = above_end_pos;

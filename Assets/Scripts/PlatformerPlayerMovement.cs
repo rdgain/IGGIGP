@@ -18,6 +18,7 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 	private bool stepping = false;
 	private float to_step;
 	public bool can_jump = false;
+	public bool jumping = false;
 	public bool sliding = false;
 	public bool stealing = false;
 	private bool righting = false;
@@ -78,6 +79,7 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 			}
 			if (v > 0.1f && can_jump) {
 				velocity.y = jump_speed;
+				jumping = true;
 			}
 
 			// Update position according to velocity.
@@ -115,6 +117,7 @@ public class PlatformerPlayerMovement : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D c)
 	{
 		if (c.gameObject.tag == "Floor") {
+			jumping = false;
 			can_jump = true;
 		}
 	}
