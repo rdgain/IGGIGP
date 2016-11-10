@@ -2566,7 +2566,7 @@ MonoBehaviour:
   dampTime: 0.15
   shake_strength: 0.1
   shake_time: 0.2
-  target: {fileID: 0}
+  target: {fileID: 4000011980020628, guid: 0afde049624874cb2b35917451935f48, type: 2}
 --- !u!114 &114000013335570422
 MonoBehaviour:
   m_ObjectHideFlags: 1

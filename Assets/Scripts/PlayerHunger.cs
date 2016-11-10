@@ -29,6 +29,7 @@ public class PlayerHunger : MonoBehaviour {
         if (rate > GameManagerScript.HUNGER_RATE)
         {
             IncreaseHunger(1);
+			print (hunger);
             rate = 0;
         }
 

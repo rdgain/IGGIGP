@@ -13,6 +13,11 @@ public class CameraMovement : MonoBehaviour
 	private bool shaking = false;
 	private float shake_time_left;
 
+	void Start()
+	{
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
+	}
+
     // Update is called once per frame
     void Update()
     {

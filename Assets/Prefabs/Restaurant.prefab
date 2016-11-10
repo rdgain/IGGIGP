@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0569ca6a1a2f6c48ba55517220834d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  player: {fileID: 0}
+  text: {fileID: 1000011163029566, guid: 2651ee9a0ca78cc42b7ea6e67e0255ec, type: 2}
+  player: {fileID: 1000010776912334, guid: 0afde049624874cb2b35917451935f48, type: 2}
   evening_fish: {fileID: 1000012560538560}
 --- !u!114 &114000011399978828
 MonoBehaviour:
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2979620c2d1ea48e3b2f1fa3c194d7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 114000012271972006, guid: 24cb3fdb639530448a7b821f451f4692, type: 2}
   steal_time: 5
 --- !u!114 &114000012389403284
 MonoBehaviour:

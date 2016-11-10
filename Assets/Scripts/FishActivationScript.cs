@@ -10,6 +10,7 @@ public class FishActivationScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		fishScript = GameObject.FindGameObjectWithTag ("Player").GetComponent<FishScript>();
         sr = GetComponent<SpriteRenderer>();
 	
 	}
