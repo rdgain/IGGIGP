@@ -2033,6 +2033,66 @@ Prefab:
       propertyPath: m_BackGroundColor.b
       value: 0.8602941
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: morning_color.r
+      value: 0.72091264
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: morning_color.g
+      value: 0.8035795
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: morning_color.b
+      value: 0.8308824
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: day_color.r
+      value: 0.64052916
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: day_color.g
+      value: 0.72794116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: day_color.b
+      value: 0.5566609
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: evening_color.r
+      value: 0.5661765
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: evening_color.g
+      value: 0.39528996
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: evening_color.b
+      value: 0.17901169
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: night_color.r
+      value: 0.28157437
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: night_color.g
+      value: 0.28247225
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013326591834, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: night_color.b
+      value: 0.41176468
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67ca3bd0740575c459f8eabe942d6d1d, type: 2}
   m_IsPrefabParent: 0

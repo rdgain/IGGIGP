@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
 	private bool shaking = false;
 	private float shake_time_left;
 
+    public Color morning_color, day_color, evening_color, night_color;
+
 	void Start()
 	{
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -39,6 +41,14 @@ public class CameraMovement : MonoBehaviour
 				shaking = false;
 			}
 		}
+
+        switch (GameManagerScript.moment)
+        {
+            case GameManagerScript.MORNING: GetComponent<Camera>().backgroundColor = morning_color; break;
+            case GameManagerScript.DAY: GetComponent<Camera>().backgroundColor = day_color; break;
+            case GameManagerScript.EVENING: GetComponent<Camera>().backgroundColor = evening_color; break;
+            case GameManagerScript.NIGHT: GetComponent<Camera>().backgroundColor = night_color; break;
+        }
     }
 
 	public void Shake()
