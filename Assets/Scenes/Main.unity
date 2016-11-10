@@ -368,6 +368,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1954443963}
   m_RootOrder: 26
+--- !u!1 &234432872 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012560538560, guid: 2eef06c3dc4f4144ea56f0f8ab955c63,
+    type: 2}
+  m_PrefabInternal: {fileID: 1372610916}
 --- !u!1 &252600113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,6 +1408,10 @@ Prefab:
       propertyPath: m_Size.x
       value: 39.904224
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010760420202, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
+      propertyPath: m_Name
+      value: DocksFish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
   m_IsPrefabParent: 0
@@ -1753,8 +1762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8372a3fc7b4b1f43aa0174de9a27b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 867588291}
-  player: {fileID: 1877651179}
+  FeedText: FeedTextSelf
   feedPlayer: 1
   who: PENGUIN
   fed: 0
@@ -2044,11 +2052,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67ca3bd0740575c459f8eabe942d6d1d, type: 2}
   m_IsPrefabParent: 0
---- !u!102 &867588291 stripped
-TextMesh:
-  m_PrefabParentObject: {fileID: 102000013645452502, guid: 67ca3bd0740575c459f8eabe942d6d1d,
-    type: 2}
-  m_PrefabInternal: {fileID: 867588290}
 --- !u!1001 &903133023
 Prefab:
   m_ObjectHideFlags: 0
@@ -3444,26 +3447,8 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1000014009419014, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010120443102, guid: 0e44faa4dd87a4a0a96be880d24c61f5,
-        type: 2}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 114000012271972006, guid: 24cb3fdb639530448a7b821f451f4692,
-        type: 2}
-    - target: {fileID: 4000012018061978, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.8087231
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012018061978, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.8087231
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012018061978, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.8087231
+      propertyPath: m_Name
+      value: MarketFish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
@@ -4217,11 +4202,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b41bc5f171454104a851b68bbbd0e9d0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1877651179 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010776912334, guid: 0afde049624874cb2b35917451935f48,
-    type: 2}
-  m_PrefabInternal: {fileID: 1044920351}
 --- !u!114 &1877651180 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000013772458448, guid: 0afde049624874cb2b35917451935f48,
@@ -4730,7 +4710,7 @@ Prefab:
     - target: {fileID: 11473616, guid: f6768f30a549c174cbf1068959105d00, type: 2}
       propertyPath: evening_fish
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 234432872}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6768f30a549c174cbf1068959105d00, type: 2}
   m_IsPrefabParent: 0

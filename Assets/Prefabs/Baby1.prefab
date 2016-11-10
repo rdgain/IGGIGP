@@ -163,10 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8372a3fc7b4b1f43aa0174de9a27b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 102000011796823062, guid: 24cb3fdb639530448a7b821f451f4692, type: 2}
-  player: {fileID: 1000010776912334, guid: 0afde049624874cb2b35917451935f48, type: 2}
+  FeedText: FeedTextBaby1
   feedPlayer: 0
-  who: 
+  who: Baby 1
   fed: 0
   startedFeeding: 0
 --- !u!114 &114000012454494528
@@ -182,8 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 0
   rate: 0
-  hunger_ui: {fileID: 114000013007130790, guid: 24cb3fdb639530448a7b821f451f4692,
-    type: 2}
+  ui_name: Hunger_2
   hunger_penalty: 10
 --- !u!212 &212000011763512722
 SpriteRenderer:
