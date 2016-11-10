@@ -9,7 +9,7 @@ public class PlayerHunger : MonoBehaviour {
     public int rate;
     public Slider hunger_ui;
 
-    public int hunger_penalty;
+    public int hunger_penalty = 10;
     GameManagerScript gameManager;
 
 	// Use this for initialization
