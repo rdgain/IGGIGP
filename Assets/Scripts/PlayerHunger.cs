@@ -15,8 +15,9 @@ public class PlayerHunger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rate = 0;
-        hunger = 0;
+        hunger = GameManagerScript.MAX_HUNGER;
         hunger_ui.maxValue = GameManagerScript.MAX_HUNGER;
+        hunger_ui.value = GameManagerScript.MAX_HUNGER;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
 	
@@ -41,12 +42,17 @@ public class PlayerHunger : MonoBehaviour {
 
     void IncreaseHunger(int amount)
     {
-        if (hunger + amount <= GameManagerScript.MAX_HUNGER)
+        if (hunger - amount >= 0)
         {
-            hunger += amount;
+            hunger -= amount;
 
             // Update hunger UI
             hunger_ui.value = hunger;
+
+            if (hunger <= GameManagerScript.MAX_HUNGER * 2 / 3)
+                hunger_ui.transform.FindChild("Fill Area").FindChild("Fill").GetComponent<Image>().color = Color.yellow;
+            if (hunger <= GameManagerScript.MAX_HUNGER / 3)
+                hunger_ui.transform.FindChild("Fill Area").FindChild("Fill").GetComponent<Image>().color = Color.red;
 
         }
         else

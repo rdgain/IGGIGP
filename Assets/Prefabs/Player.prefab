@@ -310,14 +310,19 @@ MonoBehaviour:
   loss_rate: 0.1
   first: {fileID: 1000011484030066}
   first_ui: {fileID: 1000014228856472, guid: 4b5f6bcfc850ccc42a34a735c045173a, type: 2}
+  first_ui1: {fileID: 1000013751776508, guid: e1b2a0b847265b1458dcda1c20b1f7ea, type: 2}
   second: {fileID: 1000014245483900}
   second_ui: {fileID: 1000010055005302, guid: 30a42b50825b3434e8855b03f7eaac3a, type: 2}
+  second_ui1: {fileID: 1000010430988896, guid: 2e09fa9574934354ca1bc4c4d9e429df, type: 2}
   third: {fileID: 1000010996256864}
   third_ui: {fileID: 1000010648265686, guid: 31824cdee05831c48b1e4a0555794613, type: 2}
+  third_ui1: {fileID: 1000012296059852, guid: 3199dc442e87ef64392fc29384e24b26, type: 2}
   fourth: {fileID: 1000010041262314}
   fourth_ui: {fileID: 1000010252278720, guid: f4ed39dda2cf5d14883c4a579c230603, type: 2}
+  fourth_ui1: {fileID: 1000011678554852, guid: a38aba75a378abf45a0f89836b449eae, type: 2}
   fifth: {fileID: 1000011120320756}
   fifth_ui: {fileID: 1000010035656518, guid: a9a54c73f4a4ea94cb673d07497a3ac4, type: 2}
+  fifth_ui1: {fileID: 1000010067596528, guid: 9f5e603e38dbcdd4c8b65e8f12f4fbd2, type: 2}
 --- !u!114 &114000012760997876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +358,7 @@ MonoBehaviour:
   rate: 0
   hunger_ui: {fileID: 114000010541641710, guid: 2e7062f91ec9550499d591074ad260e6,
     type: 2}
+  hunger_penalty: 0
 --- !u!114 &114000013772458448
 MonoBehaviour:
   m_ObjectHideFlags: 1
