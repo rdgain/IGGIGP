@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - QueueTarget
   - MarketSpawn
+  - DockSpawn
   layers:
   - Default
   - TransparentFX

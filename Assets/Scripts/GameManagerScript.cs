@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour {
 
 	public GameObject day_fish, evening_fish;
 
+	public int NO_NPC_DOCKS;
     public int NO_NPC_MARKET;
     public int NO_NPC_RESTAURANT;
 
@@ -87,38 +88,42 @@ public class GameManagerScript : MonoBehaviour {
 
         switch (moment)
 		{
-		    case MORNING:
-                dayCount++;
-                player.GetComponent<PlayerInteraction>().ForceHideHelpText();
+		case MORNING:
+			dayCount++;
+			player.GetComponent<PlayerInteraction> ().ForceHideHelpText ();
 
                 // Reset NPCs.
-                foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC"))
-                {
-                    if (g.activeSelf)
-                    {
-                        Destroy(g);
-                    }
-                }
+			foreach (GameObject g in GameObject.FindGameObjectsWithTag("NPC")) {
+				if (g.activeSelf) {
+					Destroy (g);
+				}
+			}
 
                 // TODO adjust hunger
-                foreach (GameObject g in GameObject.FindGameObjectsWithTag("Penguin"))
-                {
-                    g.GetComponent<PlayerHunger>().HungerPenalty();
-                }
+			foreach (GameObject g in GameObject.FindGameObjectsWithTag("Penguin")) {
+				g.GetComponent<PlayerHunger> ().HungerPenalty ();
+			}
 
                 //Reset player disguise
-                player.GetComponent<PlayerDisguise> ().ResetDisguise ();
+			player.GetComponent<PlayerDisguise> ().ResetDisguise ();
 
                 //Reset player position to spawn point
-			    player.transform.position = playerSpawn.transform.position;
+			player.transform.position = playerSpawn.transform.position;
 
 			    //Update UI day count
-			    GameObject.Find("DayCountText").GetComponent<TextMesh>().text = "Day: " + dayCount;
+			GameObject.Find ("DayCountText").GetComponent<TextMesh> ().text = "Day: " + dayCount;
 
 			    //Reset fish
-			    for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
-				    player.GetComponent<FishScript> ().fish [i].has = false;
-			    }
+			for (int i = 0; i < player.GetComponent<FishScript> ().fish.Length; i++) {
+				player.GetComponent<FishScript> ().fish [i].has = false;
+			}
+
+				// Spawn people in the docks
+			GameObject dock_spawn = GetSpawn ("DockSpawn");
+			for (int i = 0; i < NO_NPC_DOCKS; i++) {
+				GameObject npc = Instantiate (NPC);
+				npc.transform.position = dock_spawn.transform.position;
+			}
 			    break;
 		    case DAY:
 			    // Day things:
@@ -149,6 +154,7 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
+	// Gets the furthest spawn from the player.
 	GameObject GetSpawn(string tag)
 	{
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");

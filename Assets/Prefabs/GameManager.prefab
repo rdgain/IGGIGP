@@ -41,12 +41,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1000010776912334, guid: 0afde049624874cb2b35917451935f48, type: 2}
-  NPC: {fileID: 1000010992369852, guid: a1fd8a3549cef0d4e8689d1197113028, type: 2}
+  NPC: {fileID: 1000012137485194, guid: 80994862b639b1246b1174a4e681842e, type: 2}
   playerSpawn: {fileID: 180570, guid: b48eb643ddb794c47ad51c4e0ceb6239, type: 2}
   dayCountText: {fileID: 102000013109071188, guid: bd1308b958c82484c8587dfc165ad2e9,
     type: 2}
-  day_fish: {fileID: 1000014009419014, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
+  day_fish: {fileID: 0}
   evening_fish: {fileID: 0}
+  NO_NPC_DOCKS: 2
   NO_NPC_MARKET: 4
   NO_NPC_RESTAURANT: 5
 --- !u!1001 &100100000
