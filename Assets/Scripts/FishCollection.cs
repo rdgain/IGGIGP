@@ -13,9 +13,10 @@ public class FishCollection : MonoBehaviour {
 	private float stolen = 0f;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		interaction = GetComponent<InteractiveObject> ();
 		player = GameObject.Find ("Player");
+		slider = GameObject.Find ("UISlider").GetComponent<Slider> ();
 	}
 	
 	// Update is called once per frame

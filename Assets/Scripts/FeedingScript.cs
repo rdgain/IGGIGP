@@ -100,14 +100,17 @@ public class FeedingScript : MonoBehaviour
     void ReduceHunger(int i)
     {
         // Reduce hunger by value of fish and display text
-        if (!feedPlayer) 
-            if (GetComponent<PlayerHunger>().hunger > fishScript.fish[i].value) 
-                GetComponent<PlayerHunger>().hunger -= fishScript.fish[i].value;
-            else GetComponent<PlayerHunger>().hunger = 0;
-        else 
-            if (player.GetComponent<PlayerHunger>().hunger > fishScript.fish[i].value) 
-                player.GetComponent<PlayerHunger>().hunger -= fishScript.fish[i].value;
-            else player.GetComponent<PlayerHunger>().hunger = 0;
+		if (!feedPlayer) {
+			if (GetComponent<PlayerHunger> ().hunger + fishScript.fish [i].value < GameManagerScript.MAX_HUNGER)
+				GetComponent<PlayerHunger> ().hunger += fishScript.fish [i].value;
+			else
+				GetComponent<PlayerHunger> ().hunger = GameManagerScript.MAX_HUNGER;
+		} else {
+			if (player.GetComponent<PlayerHunger> ().hunger + fishScript.fish [i].value < GameManagerScript.MAX_HUNGER)
+				player.GetComponent<PlayerHunger> ().hunger += fishScript.fish [i].value;
+			else
+				player.GetComponent<PlayerHunger> ().hunger = GameManagerScript.MAX_HUNGER;
+		}
 
         ShowText(who + ": Om nom nom");
         fed = true;

@@ -13,6 +13,8 @@ TagManager:
   - QueueTarget
   - MarketSpawn
   - NPC_R
+  - DockSpawn
+  - RestaurantSpawn
   layers:
   - Default
   - TransparentFX

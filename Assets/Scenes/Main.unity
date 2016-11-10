@@ -212,7 +212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013675295380, guid: 114162c2a3f7b0e4fb8b24f71322860e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.24
+      value: 5.38
       objectReference: {fileID: 0}
     - target: {fileID: 4000010669965096, guid: 114162c2a3f7b0e4fb8b24f71322860e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -220,11 +220,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010669965096, guid: 114162c2a3f7b0e4fb8b24f71322860e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: -0.81
       objectReference: {fileID: 0}
     - target: {fileID: 4000013675295380, guid: 114162c2a3f7b0e4fb8b24f71322860e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.56
+      value: -1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 114162c2a3f7b0e4fb8b24f71322860e, type: 2}
@@ -498,6 +498,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b41bc5f171454104a851b68bbbd0e9d0, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &324343638 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000013778370140, guid: 2eef06c3dc4f4144ea56f0f8ab955c63,
+    type: 2}
+  m_PrefabInternal: {fileID: 1372610916}
 --- !u!4 &339741418 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010344615978, guid: b41bc5f171454104a851b68bbbd0e9d0,
@@ -1363,7 +1368,7 @@ Prefab:
     - target: {fileID: 114000011798517620, guid: da26ce6fa36b14763a829da4a20e5234,
         type: 2}
       propertyPath: stage_time
-      value: 7.5
+      value: 7.75
       objectReference: {fileID: 0}
     - target: {fileID: 114000011798517620, guid: da26ce6fa36b14763a829da4a20e5234,
         type: 2}
@@ -1411,6 +1416,27 @@ Prefab:
     - target: {fileID: 1000010760420202, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
       propertyPath: m_Name
       value: DocksFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012865936452, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.342
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012865936452, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.08312718
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011529104362, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011529104362, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.08592745
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011208468666, guid: da26ce6fa36b14763a829da4a20e5234,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da26ce6fa36b14763a829da4a20e5234, type: 2}
@@ -2045,6 +2071,20 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000011943642454, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012064016496, guid: 67ca3bd0740575c459f8eabe942d6d1d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013289272698, guid: 67ca3bd0740575c459f8eabe942d6d1d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012021787858, guid: 67ca3bd0740575c459f8eabe942d6d1d,
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2690,7 +2730,7 @@ Prefab:
     - target: {fileID: 212000012931364618, guid: b41bc5f171454104a851b68bbbd0e9d0,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61000012853817880, guid: b41bc5f171454104a851b68bbbd0e9d0, type: 2}
@@ -2836,6 +2876,18 @@ Prefab:
     - target: {fileID: 4000013778370140, guid: 2eef06c3dc4f4144ea56f0f8ab955c63, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010730062842, guid: 2eef06c3dc4f4144ea56f0f8ab955c63, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -10.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010730062842, guid: 2eef06c3dc4f4144ea56f0f8ab955c63, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010328119842, guid: 2eef06c3dc4f4144ea56f0f8ab955c63, type: 2}
+      propertyPath: m_TagString
+      value: RestaurantSpawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eef06c3dc4f4144ea56f0f8ab955c63, type: 2}
@@ -3338,7 +3390,7 @@ Prefab:
     - target: {fileID: 212000012931364618, guid: b41bc5f171454104a851b68bbbd0e9d0,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61000012853817880, guid: b41bc5f171454104a851b68bbbd0e9d0, type: 2}
@@ -3449,6 +3501,14 @@ Prefab:
     - target: {fileID: 1000014009419014, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
       propertyPath: m_Name
       value: MarketFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012018061978, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012018061978, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e44faa4dd87a4a0a96be880d24c61f5, type: 2}
@@ -4413,6 +4473,36 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b41bc5f171454104a851b68bbbd0e9d0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1934219577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000010328119842, guid: 2eef06c3dc4f4144ea56f0f8ab955c63,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1934219578}
+  m_Layer: 0
+  m_Name: RestaurantSpawn (1)
+  m_TagString: RestaurantSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1934219578
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4000010730062842, guid: 2eef06c3dc4f4144ea56f0f8ab955c63,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934219577}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.54, y: -2.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 324343638}
+  m_RootOrder: 7
 --- !u!1 &1946986481
 GameObject:
   m_ObjectHideFlags: 0

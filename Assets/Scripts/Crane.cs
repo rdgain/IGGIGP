@@ -33,6 +33,9 @@ public class Crane : MonoBehaviour {
 		start = GameObject.Find ("CraneStart");
 		intermediate = GameObject.Find ("CraneIntermediate");
 		end = GameObject.Find ("CraneEnd");
+		my_fish = GameObject.Find ("DocksFish");
+		my_fish.SetActive (false);
+		player_fish = GameObject.FindGameObjectWithTag ("Player").GetComponent<FishScript> ();
 
 		start_pos = start.transform.position;
 		above_start_pos = new Vector2 (start_pos.x, intermediate.transform.position.y);

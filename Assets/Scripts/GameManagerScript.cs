@@ -29,7 +29,7 @@ public class GameManagerScript : MonoBehaviour {
     public static int moment;
 
 	public static float time; // range: 0 to lengthOfMoment
-    public static int MAX_HUNGER = 100, HUNGER_RATE = 200;
+    public static int MAX_HUNGER = 100, HUNGER_RATE = 400;
 
     void Awake()
     {
@@ -44,6 +44,10 @@ public class GameManagerScript : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         warningText = GameObject.Find("WarningText").GetComponent<TextMesh>();
         dayCountText = GameObject.Find("DayCountText").GetComponent<TextMesh>();
+		day_fish = GameObject.Find ("MarketFish");
+		evening_fish = GameObject.Find ("RestaurantFish");
+		day_fish.SetActive (false);
+		evening_fish.SetActive (false);
     }
 	
 	// Update is called once per frame
@@ -166,7 +170,7 @@ public class GameManagerScript : MonoBehaviour {
             case EVENING:
                 //Evening things:
                 // Spawn NPCs at the restaurant.
-                GameObject restaurant_spawn = GameObject.Find("RestaurantSpawn");
+				GameObject restaurant_spawn = GetSpawn("RestaurantSpawn");
                 for (int i = 0; i < NO_NPC_RESTAURANT; i++)
                 {
                     GameObject npc = Instantiate(NPC);
