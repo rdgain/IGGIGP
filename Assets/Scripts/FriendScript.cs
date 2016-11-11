@@ -35,7 +35,7 @@ public class FriendScript : MonoBehaviour {
         if (GameManagerScript.moment == GameManagerScript.DAY)
             ShowText("FRIEND: You look beautiful, friend.\nFRIEND: Can you get me a hat from the market?");
         if (GameManagerScript.moment == GameManagerScript.EVENING)
-            ShowText("FRIEND: Did you see that cool restaurant they just opened near the docks?");
+            ShowText("FRIEND: Did you see that cool restaurant they \njust opened near the docks?");
         if (GameManagerScript.moment == GameManagerScript.NIGHT) {
 			ShowText ("FRIEND: Welcome, friend! Have a fish.");
             player.GetComponent<FishScript>().fish[GameManagerScript.NIGHT].has = true;

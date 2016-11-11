@@ -40,7 +40,7 @@ public class RestaurantOrderScript : MonoBehaviour
         } 
         else
         {
-            ShowText("ORDERING MACHINE: Thank you for your order, it will be with you shortly.");
+            ShowText("ORDERING MACHINE: Thank you for your order, \nit will be with you shortly.");
             evening_fish.SetActive(true);
         }
     }

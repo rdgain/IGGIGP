@@ -43,7 +43,7 @@ public class FishCollection : MonoBehaviour {
 			stolen = 0;
 			player.GetComponent<PlatformerPlayerMovement> ().stealing = false;
 			slider.gameObject.SetActive (false);
-			GameObject.Find ("Help Text").GetComponent<Text> ().text = "";
+            player.GetComponent<PlayerInteraction>().ForceHideHelpText();
 			gameObject.SetActive (false);
 		}
 	}
