@@ -37,20 +37,32 @@ Sprint #3: Adding game areas
     * NPC behaviour: docks [7]
     * NPC interactions: seeing you steal [2]
 	
-Added bugs & minor tweaks:
-* UI behind object [FIXED]
-* Another spawn in restaurant [FIXED]
-* Missing references when loading new scene [FIXED]
-* Move hat stall [FIXED]
-* Decrease hunger rate [FIXED]
-* signs to friend's location [FIXED]
-* friend stands out [FIXED]
-* dialogue appears in bottom right with names to who said what [FIXED]
-* warnings in top left when a new moment has begun, a new day has begun or a family member has died [FIXED]
-* make hunger bars more obvious that they're a bad thing [FIXED]
-* highlight player hunger bar [FIXED]
-* disguise UI more obvious [FIXED]
-* corners in floor you get stuck in [FIXED]
-* Camera background [FIXED]
-* Sea death [FIXED]
-* Leaderboard
+Sprint #4: Bug fixing and finishing touches
+- scrum master: Adam Sattaur
+- dates: 10th Nov
+- sprint backlog: 
+    * UI behind object [FIXED]
+    * Another spawn in restaurant [FIXED]
+    * Missing references when loading new scene [FIXED]
+    * Move hat stall [FIXED]
+    * Decrease hunger rate [FIXED]
+    * signs to friend's location [FIXED]
+    * friend stands out [FIXED]
+    * dialogue appears in bottom right with names to who said what [FIXED]
+    * warnings in top left when a new moment has begun, a new day has begun or a family member has died [FIXED]
+    * make hunger bars more obvious that they're a bad thing [FIXED]
+    * highlight player hunger bar [FIXED]
+    * disguise UI more obvious [FIXED]
+    * corners in floor you get stuck in [FIXED]
+    * Camera background [FIXED]
+    * Sea death [FIXED]
+    * Leaderboard [FIXED]
+    * Help text not disappearing after placing order. [FIXED]
+	
+Sprint #5: Final documentation
+- scrum master: Raluca Gaina
+- dates: 11th Nov
+- sprint backlog:
+    * documentation [10]
+	* presentation [5]
+	* YouTube video [4]
