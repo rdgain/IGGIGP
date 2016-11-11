@@ -15,7 +15,10 @@ public class TextEditScript : MonoBehaviour {
 
         int day = GameManagerScript.dayCount;
         GetComponent<Text>().text += day;
-        LoadSceneScript.AppendString(FileName, ": " + day.ToString() + Environment.NewLine);
+        StreamWriter writer;
+        writer = File.AppendText("Assets/Resources/" + FileName + ".txt");
+        writer.Write(": " + day.ToString() + Environment.NewLine);
+        writer.Close();
 
     }
 	
